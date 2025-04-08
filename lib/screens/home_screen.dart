@@ -39,7 +39,11 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("SPORT'S TRADE"),
+        title: Image.asset(
+          'assets/images/logo.png', // Your logo path
+          height: 100,
+          width: 120,
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.notifications_outlined),

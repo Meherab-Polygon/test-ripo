@@ -1,6 +1,6 @@
-import '../models/user.dart';
-import '../models/trade.dart';
 import '../models/cricket_match.dart';
+import '../models/trade.dart';
+import '../models/user.dart';
 
 class DummyData {
   // Dummy Users
@@ -11,7 +11,7 @@ class DummyData {
         name: 'Virat Kohli',
         username: 'virat18',
         email: 'virat@example.com',
-        profileImage: 'https://via.placeholder.com/150',
+        profileImage: 'https://i.ibb.co/P6zcgCB/virat-kohli.jpg',
         balance: 25000,
         activeTrades: ['1', '3'],
         completedTrades: ['2', '4'],
@@ -21,7 +21,7 @@ class DummyData {
         name: 'Rohit Sharma',
         username: 'hitman45',
         email: 'rohit@example.com',
-        profileImage: 'https://via.placeholder.com/150',
+        profileImage: 'https://i.ibb.co/FmNxhHr/rohit-sharma.jpg',
         balance: 18000,
         activeTrades: ['1', '5'],
         completedTrades: ['2'],
@@ -31,7 +31,7 @@ class DummyData {
         name: 'MS Dhoni',
         username: 'msd7',
         email: 'dhoni@example.com',
-        profileImage: 'https://via.placeholder.com/150',
+        profileImage: 'https://i.ibb.co/Tkc0qJK/ms-dhoni.jpg',
         balance: 30000,
         activeTrades: ['3'],
         completedTrades: ['4', '5'],
@@ -41,7 +41,7 @@ class DummyData {
         name: 'Jasprit Bumrah',
         username: 'boom93',
         email: 'bumrah@example.com',
-        profileImage: 'https://via.placeholder.com/150',
+        profileImage: 'https://i.ibb.co/zNtxXhB/bumrah.jpg',
         balance: 15000,
         activeTrades: ['5'],
         completedTrades: ['1', '2'],
@@ -49,13 +49,14 @@ class DummyData {
     ];
   }
 
-  // Dummy Trades
+  // Dummy Trades (unchanged)
   static List<Trade> getDummyTrades() {
     return [
       Trade(
         id: '1',
         question: 'Will India win the toss?',
-        description: 'Predict if India will win the toss in the upcoming match against Australia.',
+        description:
+            'Predict if India will win the toss in the upcoming match against Australia.',
         createdAt: DateTime.now().subtract(const Duration(days: 1)),
         expiresAt: DateTime.now().add(const Duration(hours: 3)),
         status: TradeStatus.active,
@@ -68,7 +69,8 @@ class DummyData {
       Trade(
         id: '2',
         question: 'Will Virat Kohli score a century?',
-        description: 'Predict if Virat Kohli will score a century in the match against Australia.',
+        description:
+            'Predict if Virat Kohli will score a century in the match against Australia.',
         createdAt: DateTime.now().subtract(const Duration(days: 2)),
         expiresAt: DateTime.now().add(const Duration(hours: 5)),
         status: TradeStatus.active,
@@ -81,7 +83,8 @@ class DummyData {
       Trade(
         id: '3',
         question: 'Will there be a super over?',
-        description: 'Predict if the match between India and Australia will go to a super over.',
+        description:
+            'Predict if the match between India and Australia will go to a super over.',
         createdAt: DateTime.now().subtract(const Duration(days: 1)),
         expiresAt: DateTime.now().add(const Duration(hours: 6)),
         status: TradeStatus.active,
@@ -94,7 +97,8 @@ class DummyData {
       Trade(
         id: '4',
         question: 'Will Rohit Sharma be the top scorer?',
-        description: 'Predict if Rohit Sharma will be the top scorer for India in the match.',
+        description:
+            'Predict if Rohit Sharma will be the top scorer for India in the match.',
         createdAt: DateTime.now().subtract(const Duration(days: 3)),
         expiresAt: DateTime.now().subtract(const Duration(hours: 10)),
         status: TradeStatus.completed,
@@ -107,7 +111,8 @@ class DummyData {
       Trade(
         id: '5',
         question: 'Will India win by more than 50 runs?',
-        description: 'Predict if India will win the match by more than 50 runs.',
+        description:
+            'Predict if India will win the match by more than 50 runs.',
         createdAt: DateTime.now().subtract(const Duration(days: 4)),
         expiresAt: DateTime.now().subtract(const Duration(hours: 15)),
         status: TradeStatus.completed,
@@ -120,16 +125,15 @@ class DummyData {
     ];
   }
 
-  // Enhanced Dummy Cricket Matches
+  // Dummy Cricket Matches with Real Flag URLs
   static List<CricketMatch> getDummyCricketMatches() {
     return [
-      // Live Matches
       CricketMatch(
         id: '1',
         team1: 'India',
         team2: 'Australia',
-        team1Flag: 'https://via.placeholder.com/30',
-        team2Flag: 'https://via.placeholder.com/30',
+        team1Flag: 'https://flagcdn.com/w80/in.png',
+        team2Flag: 'https://flagcdn.com/w80/au.png',
         venue: 'Melbourne Cricket Ground',
         startTime: DateTime.now().subtract(const Duration(hours: 2)),
         status: 'live',
@@ -142,8 +146,8 @@ class DummyData {
         id: '2',
         team1: 'England',
         team2: 'South Africa',
-        team1Flag: 'https://via.placeholder.com/30',
-        team2Flag: 'https://via.placeholder.com/30',
+        team1Flag: 'https://flagcdn.com/w80/gb.png',
+        team2Flag: 'https://flagcdn.com/w80/za.png',
         venue: 'Lords Cricket Ground',
         startTime: DateTime.now().subtract(const Duration(hours: 1)),
         status: 'live',
@@ -152,14 +156,12 @@ class DummyData {
         overs1: '15.2',
         overs2: '',
       ),
-      
-      // Upcoming Matches
       CricketMatch(
         id: '3',
         team1: 'New Zealand',
         team2: 'Pakistan',
-        team1Flag: 'https://via.placeholder.com/30',
-        team2Flag: 'https://via.placeholder.com/30',
+        team1Flag: 'https://flagcdn.com/w80/nz.png',
+        team2Flag: 'https://flagcdn.com/w80/pk.png',
         venue: 'Eden Park',
         startTime: DateTime.now().add(const Duration(hours: 5)),
         status: 'upcoming',
@@ -168,8 +170,8 @@ class DummyData {
         id: '4',
         team1: 'Sri Lanka',
         team2: 'Bangladesh',
-        team1Flag: 'https://via.placeholder.com/30',
-        team2Flag: 'https://via.placeholder.com/30',
+        team1Flag: 'https://flagcdn.com/w80/lk.png',
+        team2Flag: 'https://flagcdn.com/w80/bd.png',
         venue: 'R. Premadasa Stadium',
         startTime: DateTime.now().add(const Duration(hours: 8)),
         status: 'upcoming',
@@ -178,20 +180,18 @@ class DummyData {
         id: '5',
         team1: 'West Indies',
         team2: 'Afghanistan',
-        team1Flag: 'https://via.placeholder.com/30',
-        team2Flag: 'https://via.placeholder.com/30',
+        team1Flag: 'https://flagcdn.com/w80/jm.png',
+        team2Flag: 'https://flagcdn.com/w80/af.png',
         venue: 'Kensington Oval',
         startTime: DateTime.now().add(const Duration(days: 1)),
         status: 'upcoming',
       ),
-      
-      // Completed Matches (for reference)
       CricketMatch(
         id: '6',
         team1: 'India',
         team2: 'Pakistan',
-        team1Flag: 'https://via.placeholder.com/30',
-        team2Flag: 'https://via.placeholder.com/30',
+        team1Flag: 'https://flagcdn.com/w80/in.png',
+        team2Flag: 'https://flagcdn.com/w80/pk.png',
         venue: 'Dubai International Stadium',
         startTime: DateTime.now().subtract(const Duration(days: 1)),
         status: 'completed',
@@ -204,4 +204,3 @@ class DummyData {
     ];
   }
 }
-

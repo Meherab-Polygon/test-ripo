@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../services/dummy_data.dart';
+
 import '../../models/user.dart';
+import '../../services/dummy_data.dart';
 import 'sign_up_screen.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -32,21 +33,22 @@ class _SignInScreenState extends State<SignInScreen> {
     // Simulate network delay
     Future.delayed(const Duration(seconds: 1), () {
       // Dummy authentication - accept any credentials
-      if (_emailController.text.isNotEmpty && _passwordController.text.isNotEmpty) {
+      if (_emailController.text.isNotEmpty &&
+          _passwordController.text.isNotEmpty) {
         // Find a matching user or use the first one as fallback
         final users = DummyData.getDummyUsers();
         User? matchedUser;
-        
+
         for (var user in users) {
           if (user.email.toLowerCase() == _emailController.text.toLowerCase()) {
             matchedUser = user;
             break;
           }
         }
-        
+
         // If no match found, use the first user
         matchedUser ??= users.first;
-        
+
         // Navigate to home screen
         Navigator.pushReplacementNamed(context, '/home');
       } else {
@@ -72,28 +74,12 @@ class _SignInScreenState extends State<SignInScreen> {
                 // Logo and App Name
                 Column(
                   children: [
-                    Container(
-                      width: 100,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        Icons.sports_cricket,
-                        size: 60,
-                        color: Colors.white,
-                      ),
+                    Image.asset(
+                      'assets/images/logo.png', // Your logo path
+                      height: 200,
+                      width: 200,
                     ),
                     const SizedBox(height: 16),
-                    const Text(
-                      "SPORT'S TRADE",
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1.5,
-                      ),
-                    ),
                     const SizedBox(height: 8),
                     const Text(
                       "India's exclusive Sports opinion trading platform",
@@ -105,9 +91,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                   ],
                 ),
-                
+
                 const SizedBox(height: 48),
-                
+
                 // Error message if any
                 if (_errorMessage.isNotEmpty)
                   Container(
@@ -122,7 +108,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       style: const TextStyle(color: Colors.red),
                     ),
                   ),
-                
+
                 // Email field
                 TextField(
                   controller: _emailController,
@@ -135,9 +121,9 @@ class _SignInScreenState extends State<SignInScreen> {
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
                 ),
-                
+
                 const SizedBox(height: 16),
-                
+
                 // Password field
                 TextField(
                   controller: _passwordController,
@@ -151,9 +137,9 @@ class _SignInScreenState extends State<SignInScreen> {
                   textInputAction: TextInputAction.done,
                   onSubmitted: (_) => _signIn(),
                 ),
-                
+
                 const SizedBox(height: 8),
-                
+
                 // Forgot password
                 Align(
                   alignment: Alignment.centerRight,
@@ -168,9 +154,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     child: const Text('Forgot Password?'),
                   ),
                 ),
-                
+
                 const SizedBox(height: 24),
-                
+
                 // Sign in button
                 ElevatedButton(
                   onPressed: _isLoading ? null : _signIn,
@@ -194,9 +180,9 @@ class _SignInScreenState extends State<SignInScreen> {
                           style: TextStyle(fontSize: 16),
                         ),
                 ),
-                
+
                 const SizedBox(height: 16),
-                
+
                 // Sign up link
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -215,9 +201,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                   ],
                 ),
-                
+
                 const SizedBox(height: 24),
-                
+
                 // Demo credentials hint
                 Container(
                   padding: const EdgeInsets.all(12),
@@ -247,4 +233,3 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 }
-
